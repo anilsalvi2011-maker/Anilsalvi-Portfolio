@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anil Salvi | Portfolio</title>
+<title>Anil Salvi | Developer Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
   margin:0;
   padding:0;
@@ -23,25 +24,29 @@ body{
 /* NAVBAR */
 nav{
   display:flex;
-  flex-direction:column;
+  justify-content:space-between;
   align-items:center;
-  padding:20px;
+  padding:20px 10%;
+  background:#0f172a;
 }
 
+/* LOGO */
 .logo img{
-  width:70px;
-  height:70px;
+  width:60px;
+  height:60px;
+  object-fit:cover;
   border-radius:50%;
   border:3px solid #facc15;
 }
 
+/* NAV LINKS */
 nav ul{
   display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:20px;
   list-style:none;
-  margin-top:15px;
+}
+
+nav ul li{
+  margin-left:25px;
 }
 
 nav ul li a{
@@ -57,46 +62,13 @@ nav ul li a:hover{
 /* HERO */
 .hero{
   text-align:center;
-  padding:20px;
-  margin-top:20px;
-}
-
-/* FIXED BUBBLE POSITION */
-#introBubble{
-  width:160px;
-  height:160px;
-  margin:20px auto 25px auto;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-#introBubble .ring{
-  position:absolute;
-  width:160px;
-  height:160px;
-  border-radius:50%;
-  border:5px solid #facc15;
-  animation:spin 2s linear forwards;
-}
-
-#introBubble img{
-  width:130px;
-  height:130px;
-  border-radius:50%;
-  object-fit:cover;
-  opacity:0;
-  transition:opacity 0.8s ease;
-}
-
-@keyframes spin{
-  from{transform:rotate(0deg);}
-  to{transform:rotate(360deg);}
+  padding:60px 20px;
+  max-width:900px;
+  margin:auto;
 }
 
 .hero h1{
-  font-size:32px;
+  font-size:40px;
   margin-bottom:10px;
 }
 
@@ -106,20 +78,60 @@ nav ul li a:hover{
 
 .typing{
   font-size:18px;
-  height:25px;
-  opacity:0.8;
   margin-bottom:20px;
+  height:25px;
+  opacity:0.9;
 }
 
-/* CONTENT */
+/* INTRO BUBBLE (DEFAULT DESKTOP POSITION) */
+#introBubble{
+  margin:30px auto;
+  width:200px;
+  height:200px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+#introBubble .ring{
+  position:absolute;
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  border:6px solid #facc15;
+  animation: spin 2s linear forwards;
+}
+
+#introBubble img{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity 0.6s ease;
+}
+
+@keyframes spin{
+  from{ transform:rotate(0deg); }
+  to{ transform:rotate(360deg); }
+}
+
+/* CONTENT SECTIONS */
 .content{
   display:none;
-  padding:30px 20px;
+  padding:40px 10%;
   text-align:center;
+  animation:fadeIn 0.4s ease;
 }
 
 .content.active{
   display:block;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
 h2{
@@ -129,12 +141,51 @@ h2{
 
 /* FOOTER */
 footer{
-  margin-top:40px;
-  padding:20px;
   text-align:center;
+  padding:30px 0;
   font-size:14px;
-  opacity:0.7;
+  opacity:0.8;
 }
+
+/* MOBILE FIX */
+@media (max-width:768px){
+
+  nav{
+    flex-direction:column;
+    padding:20px;
+  }
+
+  nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:15px;
+  }
+
+  nav ul li{
+    margin:10px 15px;
+  }
+
+  .hero h1{
+    font-size:28px;
+  }
+
+  #introBubble{
+    width:160px;
+    height:160px;
+  }
+
+  #introBubble .ring{
+    width:160px;
+    height:160px;
+  }
+
+  #introBubble img{
+    width:130px;
+    height:130px;
+  }
+
+}
+
 </style>
 </head>
 
@@ -142,56 +193,51 @@ footer{
 
 <nav>
   <div class="logo">
-    <img src="logo.png">
+    <img src="logo.png" alt="logo">
   </div>
   <ul>
-    <li><a href="#" onclick="showSection('about')">About</a></li>
-    <li><a href="#" onclick="showSection('skills')">Skills</a></li>
-    <li><a href="#" onclick="showSection('experience')">Experience</a></li>
-    <li><a href="#" onclick="showSection('education')">Education</a></li>
+    <li><a href="#" onclick="showSection('about'); return false;">About</a></li>
+    <li><a href="#" onclick="showSection('skills'); return false;">Skills</a></li>
+    <li><a href="#" onclick="showSection('Experience'); return false;">Experience</a></li>
+    <li><a href="#" onclick="showSection('Education'); return false;">Education</a></li>
   </ul>
 </nav>
 
 <section class="hero">
-
-  <!-- BUBBLE FIXED HERE -->
-  <div id="introBubble">
-    <div class="ring"></div>
-    <img src="myphoto.png">
-  </div>
-
   <h1>Hello, I'm <span class="highlight">Anil Salvi</span></h1>
   <div class="typing" id="typing"></div>
 
+  <!-- IMAGE BELOW NAME -->
+  <div id="introBubble">
+    <div class="ring"></div>
+    <img src="myphoto.png" alt="My Photo">
+  </div>
 </section>
 
 <!-- ABOUT -->
 <div id="about" class="content">
   <h2>About Me</h2>
   <p>
-    Experienced education professional with strong involvement in school administration,
-    digital implementation, workflow structuring and academic coordination.
+    Experienced education professional with administrative, digital and institutional coordination experience.
   </p>
 </div>
 
 <!-- SKILLS -->
 <div id="skills" class="content">
   <h2>Skills</h2>
-  Administrative Management • Process Structuring • Digital Systems •
-  HTML • CSS • JS • Canva • MS Office
+  Administrative Operations • Website Management • HTML • CSS • JavaScript
 </div>
 
 <!-- EXPERIENCE -->
-<div id="experience" class="content">
+<div id="Experience" class="content">
   <h2>Experience</h2>
-  School Administration Support • Government Coordination •
-  Website Development • Digital Workflow Implementation
+  School Operations & Digital Systems Implementation
 </div>
 
 <!-- EDUCATION -->
-<div id="education" class="content">
+<div id="Education" class="content">
   <h2>Education</h2>
-  B.A. – Mumbai University (2022)<br>
+  B.A. – Mumbai University (2022) <br>
   B.Ed. – MIT-WPU University (2024)
 </div>
 
@@ -200,32 +246,33 @@ footer{
 </footer>
 
 <script>
+
 /* Typing Animation */
-const texts = [
+const texts=[
   "Educator",
   "Acting School Coordinator",
   "Self-Taught Developer",
   "Digital Learning Innovator"
 ];
 
-let textIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-const typingElement = document.getElementById("typing");
+let textIndex=0;
+let charIndex=0;
+let isDeleting=false;
+const typing=document.getElementById("typing");
 
 function typeEffect(){
-  const currentText = texts[textIndex];
+  const current=texts[textIndex];
 
   if(!isDeleting){
-    typingElement.textContent = currentText.substring(0,charIndex+1);
+    typing.textContent=current.substring(0,charIndex+1);
     charIndex++;
-    if(charIndex === currentText.length){
+    if(charIndex===current.length){
       setTimeout(()=>isDeleting=true,1200);
     }
   }else{
-    typingElement.textContent = currentText.substring(0,charIndex-1);
+    typing.textContent=current.substring(0,charIndex-1);
     charIndex--;
-    if(charIndex === 0){
+    if(charIndex===0){
       isDeleting=false;
       textIndex=(textIndex+1)%texts.length;
     }
@@ -243,16 +290,11 @@ function showSection(id){
 }
 
 /* Bubble Animation */
-(function(){
-  const bubble = document.getElementById("introBubble");
-  const ring = bubble.querySelector(".ring");
-  const image = bubble.querySelector("img");
+setTimeout(()=>{
+  document.querySelector("#introBubble .ring").style.display="none";
+  document.querySelector("#introBubble img").style.opacity="1";
+},2000);
 
-  setTimeout(()=>{
-    ring.style.display="none";
-    image.style.opacity="1";
-  },2000);
-})();
 </script>
 
 </body>
