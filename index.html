@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
   margin:0;
   padding:0;
@@ -18,6 +19,7 @@
 body{
   background:#0f172a;
   color:white;
+  overflow-x:hidden;
 }
 
 /* NAVBAR */
@@ -26,7 +28,6 @@ nav{
   justify-content:space-between;
   align-items:center;
   padding:20px 10%;
-  background:#0f172a;
 }
 
 /* LOGO */
@@ -36,7 +37,6 @@ nav{
   object-fit:cover;
   border-radius:50%;
   border:3px solid #facc15;
-  display:block;
 }
 
 /* NAV LINKS */
@@ -52,7 +52,6 @@ nav ul li{
 nav ul li a{
   text-decoration:none;
   color:white;
-  cursor:pointer;
   transition:0.3s;
 }
 
@@ -63,12 +62,14 @@ nav ul li a:hover{
 /* HERO */
 .hero{
   text-align:center;
-  padding:80px 10%;
+  padding:60px 20px;
+  max-width:900px;
+  margin:auto;
 }
 
 .hero h1{
-  font-size:48px;
-  margin-bottom:15px;
+  font-size:42px;
+  margin-bottom:10px;
 }
 
 .highlight{
@@ -76,42 +77,17 @@ nav ul li a:hover{
 }
 
 .typing{
-  font-size:20px;
-  margin-bottom:25px;
-  height:30px;
-}
-
-/* BUTTON BASE */
-.btn{
-  padding:12px 28px;
-  border-radius:8px;
-  border:2px solid #facc15;
-  cursor:pointer;
-  margin:5px;
-  font-weight:600;
-  transition:0.3s ease;
-  background:transparent;
-  color:#facc15;
-}
-
-/* HOVER ONLY COLOR */
-.btn:hover{
-  background:#facc15;
-  color:#0f172a;
-}
-
-/* REMOVE FOCUS OUTLINE */
-button:focus{
-  outline:none;
+  font-size:18px;
+  height:25px;
+  opacity:0.9;
 }
 
 /* CONTENT SECTIONS */
-.content {
-    display: none;
-    padding: 40px 10%;   /* reduce padding */
-    margin-top: -70px;   /* move sections upward */
-    text-align: center;
-    animation: fadeIn 0.4s ease;
+.content{
+  display:none;
+  padding:40px 10%;
+  text-align:center;
+  animation:fadeIn 0.4s ease;
 }
 
 .content.active{
@@ -125,30 +101,10 @@ button:focus{
 
 h2{
   color:#facc15;
-  margin-bottom:30px;
+  margin-bottom:20px;
 }
 
-/* SKILLS */
-.skills-container{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:15px;
-}
-
-.skill{
-  background:#1e293b;
-  padding:10px 20px;
-  border-radius:20px;
-  transition:0.3s;
-}
-
-.skill:hover{
-  background:#facc15;
-  color:#0f172a;
-}
-
-/* EXPERIENCE*/
+/* EXPERIENCE GRID */
 .Experience-container{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -159,64 +115,103 @@ h2{
   background:#1e293b;
   padding:25px;
   border-radius:15px;
-  transition:0.3s;
-}
-
-.Experience:hover{
-  transform:translateY(-10px);
-  box-shadow:0 10px 25px rgba(250,204,21,0.3);
-}
-
-/* EDUCTAION */
-form{
-  max-width:500px;
-  margin:auto;
-  display:flex;
-  flex-direction:column;
-}
-
-input, textarea{
-  background:#1e293b;
-  color:white;
-  border:1px solid #334155;
-  padding:12px;
-  border-radius:8px;
-  margin-bottom:15px;
-}
-
-input:focus, textarea:focus{
-  border-color:#facc15;
-  outline:none;
-}
-
-button[type="submit"]{
-  background:#facc15;
-  color:#0f172a;
-  padding:12px;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
 }
 
 /* FOOTER */
- footer {
-    position: fixed;
-    bottom: 10px;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    font-size: 14px;
-    opacity: 0.8;
+footer{
+  text-align:center;
+  padding:30px 10px;
+  font-size:14px;
+  opacity:0.8;
 }
-/* Force Desktop Layout On Mobile */
-@media (max-width: 768px) {
-  body {
-    min-width: 1200px;
+
+/* ===== INTRO BUBBLE ===== */
+#introBubble{
+  position:fixed;
+  left:60px;
+  top:50%;
+  transform:translateY(-50%);
+  width:260px;
+  height:260px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  transition:transform 0.8s ease, opacity 0.8s ease;
+}
+
+#introBubble .ring{
+  position:absolute;
+  width:260px;
+  height:260px;
+  border-radius:50%;
+  border:6px solid gold;
+  animation:bubbleSpin 2s linear forwards;
+}
+
+#introBubble img{
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity 0.8s ease;
+}
+
+@keyframes bubbleSpin{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width:768px){
+
+  nav{
+    flex-direction:column;
+    gap:15px;
+    padding:20px;
   }
+
+  nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  nav ul li{
+    margin:8px 12px;
+  }
+
+  .hero h1{
+    font-size:28px;
+  }
+
+  .typing{
+    font-size:16px;
+  }
+
+  .content{
+    padding:30px 20px;
+  }
+
+  #introBubble{
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:200px;
+    height:200px;
+  }
+
+  #introBubble .ring{
+    width:200px;
+    height:200px;
+  }
+
+  #introBubble img{
+    width:170px;
+    height:170px;
+  }
+
 }
-html, body {
-    overflow-x: auto;
-}
+
 </style>
 </head>
 
@@ -243,42 +238,15 @@ html, body {
 <div id="about" class="content">
   <h2>About Me</h2>
   <p>
-    Experienced education professional with active involvement in school administration, operational coordination, and government liaison work. Skilled in managing academic processes, supporting institutional planning, and ensuring smooth day-to-day operations.
-Known for implementing structured systems, improving communication workflows, and supporting digital transformation initiatives within the school environment.
- Brings a combination of operational discipline, stakeholder coordination, and strong technical adaptability to administrative leadership roles.
+    Experienced education professional skilled in school administration,
+    operational coordination, government liaison, and digital systems implementation.
   </p>
 </div>
 
 <!-- SKILLS -->
 <div id="skills" class="content">
   <h2>Skills</h2>
-  Skills 
-
-Administrative & Operational Skills:
-
-Office Operations Management
-Academic & Institutional Coordination
-Government Documentation & Compliance Support
-Process Structuring & Workflow Improvement
-Stakeholder Communication
-Event & Program Coordination
-
-Systems & Digital Strengths:
-
-Website Management
-Digital Record Organization
-Creating Structured Documentation
-Process Digitization
-Basic Web Development (HTML, CSS, JS)
-Digital Content Support
-Canva 
-MS Office 
-
-Language: 
-
-English
-Hindi 
-Marathi
+  Administrative Management • Process Structuring • Website Management • HTML • CSS • JS • Canva • MS Office
 </div>
 
 <!-- EXPERIENCE -->
@@ -286,47 +254,33 @@ Marathi
   <h2>Experience</h2>
   <div class="Experience-container">
     <div class="Experience">
-      School Operations & Administration Support
-
-Actively involved in school management and academic planning
-Coordinated with government authorities for documentation and compliance-related processes
-Supported smooth functioning of school programs and extracurricular activities
-Improved internal communication and workflow structure
-
-🌐 Digital Systems Implementation
-
-Designed and supported the development of the school website to improve institutional visibility
-Created digital resources and content for school programs
-Introduced structured digital processes to improve information management
-
-🗂 Process & System Development
-
-Developed organized tracking methods for academic and administrative tasks
-Supported structured delegation and execution of school initiatives
-Encouraged accountability and timely follow-ups across teams
+      School Operations & Administration Support  
+      Digital Systems Implementation  
+      Process & Workflow Development
     </div>
   </div>
 </div>
 
 <!-- EDUCATION -->
 <div id="Education" class="content">
-  <h2>Eductaion</h2>
-  EDUCATION
-
-Bachelor of Arts (B.A.)
-[MUMBAI UNIVERSITY] | [2022]
-
-Bachelor of Education (B.Ed.)
-[MIT-WPU UNIVERSITY] | [2024]
+  <h2>Education</h2>
+  B.A. – Mumbai University (2022)  
+  B.Ed. – MIT-WPU University (2024)
 </div>
 
 <footer>
   © 2026 Anil Salvi | All Rights Reserved
 </footer>
 
-<script>
-/* Typing Animation */
+<!-- INTRO BUBBLE -->
+<div id="introBubble">
+  <div class="ring"></div>
+  <img src="myphoto.png" alt="My Photo">
+</div>
 
+<script>
+
+/* Typing Animation */
 const texts = [
   "Educator",
   "Acting School Coordinator",
@@ -334,145 +288,57 @@ const texts = [
   "Digital Learning Innovator"
 ];
 
-let textIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-const typingElement = document.getElementById("typing");
+let textIndex=0;
+let charIndex=0;
+let isDeleting=false;
+const typingElement=document.getElementById("typing");
 
-function typeEffect() {
-  const currentText = texts[textIndex];
+function typeEffect(){
+  const currentText=texts[textIndex];
 
-  if (!isDeleting) {
-    typingElement.textContent = currentText.substring(0, charIndex + 1);
+  if(!isDeleting){
+    typingElement.textContent=currentText.substring(0,charIndex+1);
     charIndex++;
-
-    if (charIndex === currentText.length) {
-      setTimeout(() => isDeleting = true, 1200);
+    if(charIndex===currentText.length){
+      setTimeout(()=>isDeleting=true,1200);
     }
-  } else {
-    typingElement.textContent = currentText.substring(0, charIndex - 1);
+  }else{
+    typingElement.textContent=currentText.substring(0,charIndex-1);
     charIndex--;
-
-    if (charIndex === 0) {
-      isDeleting = false;
-      textIndex = (textIndex + 1) % texts.length;
+    if(charIndex===0){
+      isDeleting=false;
+      textIndex=(textIndex+1)%texts.length;
     }
   }
 
-  setTimeout(typeEffect, isDeleting ? 50 : 100);
+  setTimeout(typeEffect,isDeleting?50:100);
 }
-
 typeEffect();
-</script>
 
-    <script>
-let autoCloseTimer=null;
-
-function showSection(sectionId){
-
-  const sections=document.querySelectorAll(".content");
-
-  sections.forEach(section=>{
-    section.classList.remove("active");
-  });
-
-  const selected=document.getElementById(sectionId);
-  selected.classList.add("active");
-
-  if(autoCloseTimer){
-    clearTimeout(autoCloseTimer);
-  }
-
-  autoCloseTimer=setTimeout(()=>{
-    selected.classList.remove("active");
-  },5000);
+/* Section Toggle */
+function showSection(id){
+  document.querySelectorAll(".content").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
 }
 
-/* CLICK ANYWHERE TO CLOSE */
-document.addEventListener("click", function(event){
-
-  const clickedInsideNav = event.target.closest("nav");
-  const clickedInsideContent = event.target.closest(".content");
-
-  if(!clickedInsideNav && !clickedInsideContent){
-
-    const sections=document.querySelectorAll(".content");
-    sections.forEach(section=>{
-      section.classList.remove("active");
-    });
-
-    if(autoCloseTimer){
-      clearTimeout(autoCloseTimer);
-    }
-  }
-
-});
-
-</script>
-<style>
-#introBubble {
-    position: fixed;
-    left: 60px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 260px;
-    height: 260px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    transition: transform 0.8s ease, opacity 0.8s ease;
-}
-
-#introBubble .ring {
-    position: absolute;
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
-    border: 6px solid gold;
-    animation: bubbleSpin 2s linear forwards;
-}
-
-#introBubble img {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.8s ease;
-}
-
-@keyframes bubbleSpin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-</style>
-
-<div id="introBubble">
-    <div class="ring"></div>
-    <img src="myphoto.png" alt="My Photo">
-</div>
-
-<script>
+/* Bubble Animation */
 (function(){
+  const bubble=document.getElementById("introBubble");
+  const ring=bubble.querySelector(".ring");
+  const image=bubble.querySelector("img");
 
-    const bubble = document.getElementById("introBubble");
-    const ring = bubble.querySelector(".ring");
-    const image = bubble.querySelector("img");
+  setTimeout(()=>{
+    ring.style.display="none";
+    image.style.opacity="1";
+  },2000);
 
-    // After 2 seconds → show image
-    setTimeout(function(){
-        ring.style.display = "none";
-        image.style.opacity = "1";
-    }, 2000);
-
-    // After 4 seconds → shrink & fade
-    setTimeout(function(){
-        bubble.style.transform = "translateY(-50%) scale(0)";
-        bubble.style.opacity = "0";
-    }, 4000);
-
+  setTimeout(()=>{
+    bubble.style.transform+=" scale(0)";
+    bubble.style.opacity="0";
+  },4000);
 })();
+
 </script>
+
 </body>
 </html>
