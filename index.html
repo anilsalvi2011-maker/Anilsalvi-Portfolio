@@ -27,19 +27,15 @@ nav{
   justify-content:space-between;
   align-items:center;
   padding:20px 10%;
-  background:#0f172a;
 }
 
-/* LOGO */
 .logo img{
   width:60px;
   height:60px;
-  object-fit:cover;
   border-radius:50%;
   border:3px solid #facc15;
 }
 
-/* NAV LINKS */
 nav ul{
   display:flex;
   list-style:none;
@@ -52,7 +48,6 @@ nav ul li{
 nav ul li a{
   text-decoration:none;
   color:white;
-  cursor:pointer;
   transition:0.3s;
 }
 
@@ -63,13 +58,13 @@ nav ul li a:hover{
 /* HERO */
 .hero{
   text-align:center;
-  padding:60px 20px;
+  padding:80px 20px 40px;
   max-width:900px;
   margin:auto;
 }
 
 .hero h1{
-  font-size:40px;
+  font-size:42px;
   margin-bottom:10px;
 }
 
@@ -79,9 +74,9 @@ nav ul li a:hover{
 
 .typing{
   font-size:18px;
-  margin-bottom:30px;
   height:25px;
   opacity:0.9;
+  margin-bottom:20px;
 }
 
 /* CONTENT */
@@ -109,12 +104,12 @@ h2{
 /* FOOTER */
 footer{
   text-align:center;
+  padding:30px 0;
   font-size:14px;
-  opacity:0.8;
-  margin:40px 0;
+  opacity:0.7;
 }
 
-/* ===== INTRO BUBBLE DESKTOP ===== */
+/* ================= BUBBLE DESKTOP ================= */
 #introBubble{
   position:fixed;
   left:60px;
@@ -152,34 +147,29 @@ footer{
   to{transform:rotate(360deg);}
 }
 
-/* ===== MOBILE FIX ===== */
+/* ================= MOBILE FIX ================= */
 @media (max-width:768px){
 
   nav{
     flex-direction:column;
-    gap:15px;
-    padding:20px;
   }
 
   nav ul{
+    margin-top:20px;
     flex-wrap:wrap;
     justify-content:center;
   }
 
   nav ul li{
-    margin:8px 12px;
+    margin:10px 15px;
+  }
+
+  .hero{
+    padding-top:30px;
   }
 
   .hero h1{
-    font-size:28px;
-  }
-
-  .typing{
-    font-size:16px;
-  }
-
-  .content{
-    padding:30px 20px;
+    font-size:32px;
   }
 
   #introBubble{
@@ -188,20 +178,21 @@ footer{
     top:auto;
     transform:none;
     margin:40px auto;
-    width:200px;
-    height:200px;
+    width:220px;
+    height:220px;
   }
 
   #introBubble .ring{
-    width:200px;
-    height:200px;
+    width:220px;
+    height:220px;
   }
 
   #introBubble img{
-    width:170px;
-    height:170px;
+    width:190px;
+    height:190px;
   }
 }
+
 </style>
 </head>
 
@@ -212,58 +203,44 @@ footer{
     <img src="logo.png" alt="logo">
   </div>
   <ul>
-    <li><a href="#" onclick="showSection('about'); return false;">About</a></li>
-    <li><a href="#" onclick="showSection('skills'); return false;">Skills</a></li>
-    <li><a href="#" onclick="showSection('experience'); return false;">Experience</a></li>
-    <li><a href="#" onclick="showSection('education'); return false;">Education</a></li>
+    <li><a href="#" onclick="showSection('about');return false;">About</a></li>
+    <li><a href="#" onclick="showSection('education');return false;">Education</a></li>
   </ul>
 </nav>
+
+<!-- BUBBLE -->
+<div id="introBubble">
+  <div class="ring"></div>
+  <img src="myphoto.png" alt="My Photo">
+</div>
 
 <section class="hero">
   <h1>Hello, I'm <span class="highlight">Anil Salvi</span></h1>
   <div class="typing" id="typing"></div>
 </section>
 
-<!-- ABOUT -->
 <div id="about" class="content">
   <h2>About Me</h2>
   <p>
-    Experienced education professional actively involved in school administration,
-    coordination, and digital transformation initiatives.
+    Experienced education professional with strong involvement in school administration,
+    operational coordination, and digital transformation initiatives.
   </p>
 </div>
 
-<!-- SKILLS -->
-<div id="skills" class="content">
-  <h2>Skills</h2>
-  Administrative Coordination • Process Structuring • Website Management • HTML • CSS • JS
-</div>
-
-<!-- EXPERIENCE -->
-<div id="experience" class="content">
-  <h2>Experience</h2>
-  School Operations • Government Documentation • Digital Systems Implementation
-</div>
-
-<!-- EDUCATION -->
 <div id="education" class="content">
   <h2>Education</h2>
-  B.A. – Mumbai University (2022) <br>
-  B.Ed. – MIT-WPU University (2024)
+  <p>
+    B.A. – Mumbai University (2022)<br>
+    B.Ed. – MIT-WPU University (2024)
+  </p>
 </div>
 
 <footer>
   © 2026 Anil Salvi | All Rights Reserved
 </footer>
 
-<!-- INTRO BUBBLE -->
-<div id="introBubble">
-  <div class="ring"></div>
-  <img src="myphoto.png" alt="My Photo">
-</div>
-
 <script>
-/* Typing Effect */
+/* Typing Animation */
 const texts = [
   "Educator",
   "Acting School Coordinator",
@@ -276,35 +253,32 @@ let charIndex = 0;
 let isDeleting = false;
 const typingElement = document.getElementById("typing");
 
-function typeEffect() {
+function typeEffect(){
   const currentText = texts[textIndex];
 
-  if (!isDeleting) {
-    typingElement.textContent = currentText.substring(0, charIndex + 1);
+  if(!isDeleting){
+    typingElement.textContent = currentText.substring(0,charIndex+1);
     charIndex++;
-    if (charIndex === currentText.length) {
-      setTimeout(() => isDeleting = true, 1200);
+    if(charIndex === currentText.length){
+      setTimeout(()=>isDeleting=true,1200);
     }
-  } else {
-    typingElement.textContent = currentText.substring(0, charIndex - 1);
+  }else{
+    typingElement.textContent = currentText.substring(0,charIndex-1);
     charIndex--;
-    if (charIndex === 0) {
-      isDeleting = false;
-      textIndex = (textIndex + 1) % texts.length;
+    if(charIndex === 0){
+      isDeleting=false;
+      textIndex=(textIndex+1)%texts.length;
     }
   }
 
-  setTimeout(typeEffect, isDeleting ? 50 : 100);
+  setTimeout(typeEffect,isDeleting?50:100);
 }
-
 typeEffect();
 
-/* Section Toggle */
-function showSection(sectionId){
-  document.querySelectorAll(".content").forEach(sec=>{
-    sec.classList.remove("active");
-  });
-  document.getElementById(sectionId).classList.add("active");
+/* Section toggle */
+function showSection(id){
+  document.querySelectorAll(".content").forEach(sec=>sec.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
 }
 
 /* Bubble Animation */
@@ -319,7 +293,7 @@ function showSection(sectionId){
   },2000);
 
   setTimeout(()=>{
-    bubble.style.transform="scale(0)";
+    bubble.style.transform += " scale(0)";
     bubble.style.opacity="0";
   },4000);
 })();
