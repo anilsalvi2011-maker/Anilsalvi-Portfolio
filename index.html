@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anil Salvi | Developer Portfolio</title>
+<title>Anil Salvi | Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -18,30 +18,30 @@
 body{
   background:#0f172a;
   color:white;
-  overflow-x:hidden;
 }
 
 /* NAVBAR */
 nav{
   display:flex;
-  justify-content:space-between;
+  flex-direction:column;
   align-items:center;
-  padding:20px 8%;
-  flex-wrap:wrap;
+  padding:20px;
 }
 
 .logo img{
-  width:60px;
-  height:60px;
+  width:70px;
+  height:70px;
   border-radius:50%;
   border:3px solid #facc15;
 }
 
 nav ul{
   display:flex;
-  list-style:none;
   flex-wrap:wrap;
+  justify-content:center;
   gap:20px;
+  list-style:none;
+  margin-top:15px;
 }
 
 nav ul li a{
@@ -57,82 +57,33 @@ nav ul li a:hover{
 /* HERO */
 .hero{
   text-align:center;
-  padding:80px 20px;
-}
-
-.hero h1{
-  font-size:42px;
-}
-
-.highlight{
-  color:#facc15;
-}
-
-.typing{
-  margin-top:10px;
-  font-size:18px;
-  height:25px;
-  opacity:0.9;
-}
-
-/* CONTENT */
-.content{
-  display:none;
-  text-align:center;
-  padding:40px 10%;
-  animation:fadeIn 0.4s ease;
-}
-
-.content.active{
-  display:block;
-}
-
-h2{
-  color:#facc15;
-  margin-bottom:20px;
-}
-
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  margin-top:60px;
   padding:20px;
-  opacity:0.7;
+  margin-top:20px;
 }
 
-/* ===== BUBBLE INTRO ===== */
-
+/* FIXED BUBBLE POSITION */
 #introBubble{
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:260px;
-  height:260px;
+  width:160px;
+  height:160px;
+  margin:20px auto 25px auto;
+  position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
-  z-index:9999;
-  transition:transform 0.8s ease, opacity 0.8s ease;
 }
 
 #introBubble .ring{
   position:absolute;
-  width:260px;
-  height:260px;
+  width:160px;
+  height:160px;
   border-radius:50%;
-  border:6px solid #facc15;
+  border:5px solid #facc15;
   animation:spin 2s linear forwards;
 }
 
 #introBubble img{
-  width:220px;
-  height:220px;
+  width:130px;
+  height:130px;
   border-radius:50%;
   object-fit:cover;
   opacity:0;
@@ -144,38 +95,45 @@ footer{
   to{transform:rotate(360deg);}
 }
 
-/* ===== MOBILE ===== */
+.hero h1{
+  font-size:32px;
+  margin-bottom:10px;
+}
 
-@media(max-width:768px){
+.highlight{
+  color:#facc15;
+}
 
-  nav{
-    flex-direction:column;
-    gap:15px;
-  }
+.typing{
+  font-size:18px;
+  height:25px;
+  opacity:0.8;
+  margin-bottom:20px;
+}
 
-  nav ul{
-    justify-content:center;
-  }
+/* CONTENT */
+.content{
+  display:none;
+  padding:30px 20px;
+  text-align:center;
+}
 
-  .hero h1{
-    font-size:30px;
-  }
+.content.active{
+  display:block;
+}
 
-  #introBubble{
-    width:200px;
-    height:200px;
-  }
+h2{
+  color:#facc15;
+  margin-bottom:20px;
+}
 
-  #introBubble .ring{
-    width:200px;
-    height:200px;
-  }
-
-  #introBubble img{
-    width:170px;
-    height:170px;
-  }
-
+/* FOOTER */
+footer{
+  margin-top:40px;
+  padding:20px;
+  text-align:center;
+  font-size:14px;
+  opacity:0.7;
 }
 </style>
 </head>
@@ -184,47 +142,64 @@ footer{
 
 <nav>
   <div class="logo">
-    <img src="logo.png" alt="logo">
+    <img src="logo.png">
   </div>
   <ul>
-    <li><a href="#" onclick="showSection('about'); return false;">About</a></li>
-    <li><a href="#" onclick="showSection('education'); return false;">Education</a></li>
+    <li><a href="#" onclick="showSection('about')">About</a></li>
+    <li><a href="#" onclick="showSection('skills')">Skills</a></li>
+    <li><a href="#" onclick="showSection('experience')">Experience</a></li>
+    <li><a href="#" onclick="showSection('education')">Education</a></li>
   </ul>
 </nav>
 
 <section class="hero">
+
+  <!-- BUBBLE FIXED HERE -->
+  <div id="introBubble">
+    <div class="ring"></div>
+    <img src="myphoto.png">
+  </div>
+
   <h1>Hello, I'm <span class="highlight">Anil Salvi</span></h1>
   <div class="typing" id="typing"></div>
+
 </section>
 
+<!-- ABOUT -->
 <div id="about" class="content">
   <h2>About Me</h2>
   <p>
-    Experienced education professional involved in school administration, operational coordination,
-    and digital system implementation. Strong focus on structured workflows and process improvement.
+    Experienced education professional with strong involvement in school administration,
+    digital implementation, workflow structuring and academic coordination.
   </p>
 </div>
 
+<!-- SKILLS -->
+<div id="skills" class="content">
+  <h2>Skills</h2>
+  Administrative Management • Process Structuring • Digital Systems •
+  HTML • CSS • JS • Canva • MS Office
+</div>
+
+<!-- EXPERIENCE -->
+<div id="experience" class="content">
+  <h2>Experience</h2>
+  School Administration Support • Government Coordination •
+  Website Development • Digital Workflow Implementation
+</div>
+
+<!-- EDUCATION -->
 <div id="education" class="content">
   <h2>Education</h2>
-  <p>
-    B.A. – Mumbai University (2022)<br>
-    B.Ed. – MIT-WPU University (2024)
-  </p>
+  B.A. – Mumbai University (2022)<br>
+  B.Ed. – MIT-WPU University (2024)
 </div>
 
 <footer>
   © 2026 Anil Salvi | All Rights Reserved
 </footer>
 
-<!-- INTRO BUBBLE -->
-<div id="introBubble">
-  <div class="ring"></div>
-  <img src="myphoto.png" alt="My Photo">
-</div>
-
 <script>
-
 /* Typing Animation */
 const texts = [
   "Educator",
@@ -244,25 +219,22 @@ function typeEffect(){
   if(!isDeleting){
     typingElement.textContent = currentText.substring(0,charIndex+1);
     charIndex++;
-
     if(charIndex === currentText.length){
       setTimeout(()=>isDeleting=true,1200);
     }
   }else{
     typingElement.textContent = currentText.substring(0,charIndex-1);
     charIndex--;
-
-    if(charIndex===0){
+    if(charIndex === 0){
       isDeleting=false;
       textIndex=(textIndex+1)%texts.length;
     }
   }
-
   setTimeout(typeEffect,isDeleting?50:100);
 }
 typeEffect();
 
-/* Show Section */
+/* Section Toggle */
 function showSection(id){
   document.querySelectorAll(".content").forEach(sec=>{
     sec.classList.remove("active");
@@ -270,7 +242,7 @@ function showSection(id){
   document.getElementById(id).classList.add("active");
 }
 
-/* ===== BUBBLE ANIMATION ===== */
+/* Bubble Animation */
 (function(){
   const bubble = document.getElementById("introBubble");
   const ring = bubble.querySelector(".ring");
@@ -280,12 +252,6 @@ function showSection(id){
     ring.style.display="none";
     image.style.opacity="1";
   },2000);
-
-  setTimeout(()=>{
-    bubble.style.transform="translate(-50%,-50%) scale(0)";
-    bubble.style.opacity="0";
-  },4000);
-
 })();
 </script>
 
