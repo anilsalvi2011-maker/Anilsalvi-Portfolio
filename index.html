@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 *{
   margin:0;
   padding:0;
@@ -28,6 +27,7 @@ nav{
   justify-content:space-between;
   align-items:center;
   padding:20px 10%;
+  background:#0f172a;
 }
 
 /* LOGO */
@@ -52,6 +52,7 @@ nav ul li{
 nav ul li a{
   text-decoration:none;
   color:white;
+  cursor:pointer;
   transition:0.3s;
 }
 
@@ -68,7 +69,7 @@ nav ul li a:hover{
 }
 
 .hero h1{
-  font-size:42px;
+  font-size:40px;
   margin-bottom:10px;
 }
 
@@ -78,11 +79,12 @@ nav ul li a:hover{
 
 .typing{
   font-size:18px;
+  margin-bottom:30px;
   height:25px;
   opacity:0.9;
 }
 
-/* CONTENT SECTIONS */
+/* CONTENT */
 .content{
   display:none;
   padding:40px 10%;
@@ -104,28 +106,15 @@ h2{
   margin-bottom:20px;
 }
 
-/* EXPERIENCE GRID */
-.Experience-container{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:20px;
-}
-
-.Experience{
-  background:#1e293b;
-  padding:25px;
-  border-radius:15px;
-}
-
 /* FOOTER */
 footer{
   text-align:center;
-  padding:30px 10px;
   font-size:14px;
   opacity:0.8;
+  margin:40px 0;
 }
 
-/* ===== INTRO BUBBLE ===== */
+/* ===== INTRO BUBBLE DESKTOP ===== */
 #introBubble{
   position:fixed;
   left:60px;
@@ -163,7 +152,7 @@ footer{
   to{transform:rotate(360deg);}
 }
 
-/* ===== MOBILE RESPONSIVE ===== */
+/* ===== MOBILE FIX ===== */
 @media (max-width:768px){
 
   nav{
@@ -194,8 +183,11 @@ footer{
   }
 
   #introBubble{
-    left:50%;
-    transform:translate(-50%,-50%);
+    position:relative;
+    left:auto;
+    top:auto;
+    transform:none;
+    margin:40px auto;
     width:200px;
     height:200px;
   }
@@ -209,9 +201,7 @@ footer{
     width:170px;
     height:170px;
   }
-
 }
-
 </style>
 </head>
 
@@ -224,8 +214,8 @@ footer{
   <ul>
     <li><a href="#" onclick="showSection('about'); return false;">About</a></li>
     <li><a href="#" onclick="showSection('skills'); return false;">Skills</a></li>
-    <li><a href="#" onclick="showSection('Experience'); return false;">Experience</a></li>
-    <li><a href="#" onclick="showSection('Education'); return false;">Education</a></li>
+    <li><a href="#" onclick="showSection('experience'); return false;">Experience</a></li>
+    <li><a href="#" onclick="showSection('education'); return false;">Education</a></li>
   </ul>
 </nav>
 
@@ -238,33 +228,27 @@ footer{
 <div id="about" class="content">
   <h2>About Me</h2>
   <p>
-    Experienced education professional skilled in school administration,
-    operational coordination, government liaison, and digital systems implementation.
+    Experienced education professional actively involved in school administration,
+    coordination, and digital transformation initiatives.
   </p>
 </div>
 
 <!-- SKILLS -->
 <div id="skills" class="content">
   <h2>Skills</h2>
-  Administrative Management • Process Structuring • Website Management • HTML • CSS • JS • Canva • MS Office
+  Administrative Coordination • Process Structuring • Website Management • HTML • CSS • JS
 </div>
 
 <!-- EXPERIENCE -->
-<div id="Experience" class="content">
+<div id="experience" class="content">
   <h2>Experience</h2>
-  <div class="Experience-container">
-    <div class="Experience">
-      School Operations & Administration Support  
-      Digital Systems Implementation  
-      Process & Workflow Development
-    </div>
-  </div>
+  School Operations • Government Documentation • Digital Systems Implementation
 </div>
 
 <!-- EDUCATION -->
-<div id="Education" class="content">
+<div id="education" class="content">
   <h2>Education</h2>
-  B.A. – Mumbai University (2022)  
+  B.A. – Mumbai University (2022) <br>
   B.Ed. – MIT-WPU University (2024)
 </div>
 
@@ -279,8 +263,7 @@ footer{
 </div>
 
 <script>
-
-/* Typing Animation */
+/* Typing Effect */
 const texts = [
   "Educator",
   "Acting School Coordinator",
@@ -288,44 +271,47 @@ const texts = [
   "Digital Learning Innovator"
 ];
 
-let textIndex=0;
-let charIndex=0;
-let isDeleting=false;
-const typingElement=document.getElementById("typing");
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typingElement = document.getElementById("typing");
 
-function typeEffect(){
-  const currentText=texts[textIndex];
+function typeEffect() {
+  const currentText = texts[textIndex];
 
-  if(!isDeleting){
-    typingElement.textContent=currentText.substring(0,charIndex+1);
+  if (!isDeleting) {
+    typingElement.textContent = currentText.substring(0, charIndex + 1);
     charIndex++;
-    if(charIndex===currentText.length){
-      setTimeout(()=>isDeleting=true,1200);
+    if (charIndex === currentText.length) {
+      setTimeout(() => isDeleting = true, 1200);
     }
-  }else{
-    typingElement.textContent=currentText.substring(0,charIndex-1);
+  } else {
+    typingElement.textContent = currentText.substring(0, charIndex - 1);
     charIndex--;
-    if(charIndex===0){
-      isDeleting=false;
-      textIndex=(textIndex+1)%texts.length;
+    if (charIndex === 0) {
+      isDeleting = false;
+      textIndex = (textIndex + 1) % texts.length;
     }
   }
 
-  setTimeout(typeEffect,isDeleting?50:100);
+  setTimeout(typeEffect, isDeleting ? 50 : 100);
 }
+
 typeEffect();
 
 /* Section Toggle */
-function showSection(id){
-  document.querySelectorAll(".content").forEach(s=>s.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
+function showSection(sectionId){
+  document.querySelectorAll(".content").forEach(sec=>{
+    sec.classList.remove("active");
+  });
+  document.getElementById(sectionId).classList.add("active");
 }
 
 /* Bubble Animation */
 (function(){
-  const bubble=document.getElementById("introBubble");
-  const ring=bubble.querySelector(".ring");
-  const image=bubble.querySelector("img");
+  const bubble = document.getElementById("introBubble");
+  const ring = bubble.querySelector(".ring");
+  const image = bubble.querySelector("img");
 
   setTimeout(()=>{
     ring.style.display="none";
@@ -333,11 +319,10 @@ function showSection(id){
   },2000);
 
   setTimeout(()=>{
-    bubble.style.transform+=" scale(0)";
+    bubble.style.transform="scale(0)";
     bubble.style.opacity="0";
   },4000);
 })();
-
 </script>
 
 </body>
