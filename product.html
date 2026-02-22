@@ -21,23 +21,22 @@ body{
   color:white;
 }
 
-/* NAVBAR (SAME AS INDEX) */
+/* NAVBAR */
 nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:20px 10%;
-  background:#0f172a;
 }
 
 .logo img{
   width:60px;
   height:60px;
-  object-fit:cover;
   border-radius:50%;
   border:3px solid #facc15;
 }
 
+/* NAV LINKS */
 nav ul{
   display:flex;
   list-style:none;
@@ -57,130 +56,56 @@ nav ul li a:hover{
   color:#facc15;
 }
 
-/* PAGE HEADER */
-.page-header{
+/* HEADER */
+.header{
   text-align:center;
   padding:60px 20px;
-  max-width:900px;
-  margin:auto;
 }
 
-.page-header h1{
-  font-size:38px;
-  margin-bottom:10px;
+.header h1{
+  font-size:40px;
 }
 
 .highlight{
   color:#facc15;
 }
 
-.page-header p{
-  opacity:0.85;
-}
-
-/* PRODUCT SECTION */
-.products{
-  max-width:900px;
-  margin:40px auto 80px;
-  padding:0 10%;
-}
-
-.product-card{
+/* PRODUCT CARD */
+.product{
+  max-width:800px;
+  margin:50px auto;
+  padding:40px;
   border:1px solid rgba(255,255,255,0.1);
   border-radius:12px;
-  padding:40px;
   text-align:center;
-  transition:0.3s;
 }
 
-.product-card:hover{
-  border-color:#facc15;
-}
-
-.product-card img{
+.product img{
   width:100px;
   margin-bottom:20px;
 }
 
-.product-card h2{
-  margin-bottom:8px;
-}
-
-.version{
-  font-size:14px;
-  opacity:0.7;
-  margin-bottom:20px;
-}
-
-.description{
-  line-height:1.6;
-  margin-bottom:25px;
-}
-
-/* BUTTONS */
 .btn{
   display:inline-block;
   padding:10px 20px;
-  border-radius:6px;
+  background:#facc15;
+  color:#0f172a;
   text-decoration:none;
-  margin:5px;
+  border-radius:6px;
+  font-weight:600;
+  margin-top:15px;
   transition:0.3s;
 }
 
-.primary{
-  background:#facc15;
-  color:#0f172a;
-  font-weight:600;
-}
-
-.primary:hover{
+.btn:hover{
   background:#eab308;
 }
 
-.secondary{
-  border:1px solid #facc15;
-  color:#facc15;
-}
-
-.secondary:hover{
-  background:#facc15;
-  color:#0f172a;
-}
-
-/* FOOTER */
 footer{
   text-align:center;
-  padding:30px 0;
+  padding:30px;
   font-size:14px;
   opacity:0.8;
-  border-top:1px solid rgba(255,255,255,0.08);
-}
-
-/* MOBILE */
-@media(max-width:768px){
-
-  nav{
-    flex-direction:column;
-    padding:20px;
-  }
-
-  nav ul{
-    margin-top:15px;
-    flex-wrap:wrap;
-    justify-content:center;
-  }
-
-  nav ul li{
-    margin:10px 15px;
-  }
-
-  .page-header h1{
-    font-size:28px;
-  }
-
-  .product-card{
-    padding:25px;
-  }
 }
 
 </style>
@@ -197,32 +122,25 @@ footer{
   </ul>
 </nav>
 
-<section class="page-header">
+<section class="header">
   <h1>My <span class="highlight">Products</span></h1>
-  <p>Applications built with purpose and educational vision.</p>
 </section>
 
-<section class="products">
+<section class="product">
 
-  <div class="product-card">
+  <img src="logo.png" alt="ClearWord">
 
-    <img src="logo.png" alt="ClearWord Icon">
+  <h2>ClearWord</h2>
+  <p>Version 1.0 • Android Application</p>
 
-    <h2>ClearWord</h2>
-    <div class="version">Version 1.0 • Android Application</div>
+  <p>
+    ClearWord is a student-focused vocabulary application designed to simplify
+    complex dictionary definitions into clear, teacher-style explanations.
+  </p>
 
-    <div class="description">
-      ClearWord is a student-focused vocabulary application designed to simplify 
-      complex dictionary definitions into clear, teacher-style explanations. 
-      Built for learners who seek clarity and structured understanding.
-    </div>
-
-    <!-- ROOT APK LINK -->
-    <a href="ClearWord_v1.0.apk" class="btn primary" download>
-      Download APK
-    </a>
-
-  </div>
+  <a href="ClearWord_v1.0.apk" class="btn" download>
+    Download APK
+  </a>
 
 </section>
 
