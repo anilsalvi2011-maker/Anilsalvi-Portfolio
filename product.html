@@ -21,7 +21,7 @@ body{
   color:white;
 }
 
-/* NAVBAR (Same as index) */
+/* NAVBAR (SAME AS INDEX) */
 nav{
   display:flex;
   justify-content:space-between;
@@ -57,14 +57,16 @@ nav ul li a:hover{
   color:#facc15;
 }
 
-/* HEADER */
-.header{
+/* PAGE HEADER */
+.page-header{
   text-align:center;
-  padding:80px 20px 40px;
+  padding:60px 20px;
+  max-width:900px;
+  margin:auto;
 }
 
-.header h1{
-  font-size:40px;
+.page-header h1{
+  font-size:38px;
   margin-bottom:10px;
 }
 
@@ -72,22 +74,21 @@ nav ul li a:hover{
   color:#facc15;
 }
 
-.header p{
-  opacity:0.9;
+.page-header p{
+  opacity:0.85;
 }
 
 /* PRODUCT SECTION */
 .products{
-  padding:40px 10%;
   max-width:900px;
-  margin:auto;
+  margin:40px auto 80px;
+  padding:0 10%;
 }
 
 .product-card{
   border:1px solid rgba(255,255,255,0.1);
-  padding:40px;
   border-radius:12px;
-  margin-bottom:40px;
+  padding:40px;
   text-align:center;
   transition:0.3s;
 }
@@ -102,7 +103,7 @@ nav ul li a:hover{
 }
 
 .product-card h2{
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
 .version{
@@ -112,10 +113,11 @@ nav ul li a:hover{
 }
 
 .description{
-  margin-bottom:20px;
   line-height:1.6;
+  margin-bottom:25px;
 }
 
+/* BUTTONS */
 .btn{
   display:inline-block;
   padding:10px 20px;
@@ -151,14 +153,33 @@ footer{
   padding:30px 0;
   font-size:14px;
   opacity:0.8;
+  border-top:1px solid rgba(255,255,255,0.08);
 }
 
+/* MOBILE */
 @media(max-width:768px){
+
   nav{
     flex-direction:column;
+    padding:20px;
   }
+
   nav ul{
     margin-top:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  nav ul li{
+    margin:10px 15px;
+  }
+
+  .page-header h1{
+    font-size:28px;
+  }
+
+  .product-card{
+    padding:25px;
   }
 }
 
@@ -176,27 +197,28 @@ footer{
   </ul>
 </nav>
 
-<section class="header">
+<section class="page-header">
   <h1>My <span class="highlight">Products</span></h1>
-  <p>Purpose-driven applications built with precision and vision.</p>
+  <p>Applications built with purpose and educational vision.</p>
 </section>
 
 <section class="products">
 
-  <!-- CLEARWORD -->
   <div class="product-card">
 
-    <img src="products/clearword-icon.png" alt="ClearWord">
+    <img src="logo.png" alt="ClearWord Icon">
 
     <h2>ClearWord</h2>
     <div class="version">Version 1.0 • Android Application</div>
 
     <div class="description">
-      ClearWord is a student-focused vocabulary application designed to simplify
-      complex dictionary definitions into clear, teacher-style explanations.
+      ClearWord is a student-focused vocabulary application designed to simplify 
+      complex dictionary definitions into clear, teacher-style explanations. 
+      Built for learners who seek clarity and structured understanding.
     </div>
 
-    <a href="products/ClearWord_v1.0.apk" class="btn primary" download>
+    <!-- ROOT APK LINK -->
+    <a href="ClearWord_v1.0.apk" class="btn primary" download>
       Download APK
     </a>
 
