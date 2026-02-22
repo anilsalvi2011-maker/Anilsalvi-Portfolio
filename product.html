@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products | Anil Salvi</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+/* HEADER */
+.header{
+    text-align:center;
+    padding:80px 20px 40px;
+}
+
+.header h1{
+    font-size:48px;
+    margin-bottom:15px;
+    color:#38bdf8;
+}
+
+.header p{
+    color:#cbd5e1;
+    font-size:18px;
+}
+
+/* PRODUCTS GRID */
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:40px;
+    padding:40px 10%;
+}
+
+/* PRODUCT CARD */
+.card{
+    background:#1e293b;
+    padding:30px;
+    border-radius:16px;
+    text-align:center;
+    transition:0.3s;
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.6);
+}
+
+.card img{
+    width:90px;
+    margin-bottom:20px;
+}
+
+.card h2{
+    margin-bottom:8px;
+    font-size:24px;
+}
+
+.version{
+    font-size:14px;
+    color:#94a3b8;
+    margin-bottom:15px;
+}
+
+.description{
+    font-size:15px;
+    color:#cbd5e1;
+    margin-bottom:20px;
+    line-height:1.5;
+}
+
+.tech{
+    font-size:13px;
+    color:#38bdf8;
+    margin-bottom:25px;
+}
+
+/* BUTTONS */
+.btn{
+    display:inline-block;
+    padding:10px 20px;
+    margin:5px;
+    border-radius:8px;
+    text-decoration:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.primary{
+    background:#3b82f6;
+    color:white;
+}
+
+.primary:hover{
+    background:#2563eb;
+}
+
+.secondary{
+    border:1px solid #38bdf8;
+    color:#38bdf8;
+}
+
+.secondary:hover{
+    background:#38bdf8;
+    color:black;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:40px;
+    color:#94a3b8;
+    margin-top:60px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<section class="header">
+    <h1>My Products</h1>
+    <p>Purpose-driven applications built with precision and vision.</p>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products">
+
+    <!-- CLEARWORD -->
+    <div class="card">
+        <img src="products/clearword-icon.png" alt="ClearWord Icon">
+
+        <h2>ClearWord</h2>
+        <div class="version">Version 1.0 • Android App</div>
+
+        <div class="description">
+            ClearWord is a student-focused vocabulary companion that provides 
+            simple, teacher-style explanations instead of complex dictionary definitions.
+        </div>
+
+        <div class="tech">
+            Android • Lightweight • Education Focused
+        </div>
+
+        <a href="products/clearword.html" class="btn secondary">
+            View Details
+        </a>
+
+        <a href="products/clearword.apk" class="btn primary" download>
+            Download APK
+        </a>
+    </div>
+
+
+    <!-- FUTURE PRODUCT -->
+    <div class="card">
+        <img src="products/coming-soon.png" alt="Coming Soon">
+
+        <h2>Academic Intelligence System</h2>
+        <div class="version">Coming Soon</div>
+
+        <div class="description">
+            A smart academic analytics dashboard designed to track student 
+            performance and provide intelligent improvement insights.
+        </div>
+
+        <div class="tech">
+            Web Application • Data Intelligence • AI Ready
+        </div>
+
+        <a href="#" class="btn secondary">
+            In Development
+        </a>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Anil Salvi | Product Engineer
+</footer>
+
+</body>
+</html>
