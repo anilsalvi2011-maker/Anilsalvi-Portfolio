@@ -1,265 +1,274 @@
-<!DOCTYPE html>  <html lang="en">  
-<head>  
-<meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  
-<title>Anil Salvi | Developer Portfolio</title>  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">  <style>  
-  
-*{  
-  margin:0;  
-  padding:0;  
-  box-sizing:border-box;  
-  font-family:'Poppins',sans-serif;  
-}  
-  
-body{  
-  background:#0f172a;  
-  color:white;  
-}  
-  
-/* NAVBAR */  
-nav{  
-  display:flex;  
-  justify-content:space-between;  
-  align-items:center;  
-  padding:20px 10%;  
-  background:#0f172a;  
-}  
-  
-/* LOGO */  
-.logo img{  
-  width:60px;  
-  height:60px;  
-  object-fit:cover;  
-  border-radius:50%;  
-  border:3px solid #facc15;  
-}  
-  
-/* NAV LINKS */  
-nav ul{  
-  display:flex;  
-  list-style:none;  
-}  
-  
-nav ul li{  
-  margin-left:25px;  
-}  
-  
-nav ul li a{  
-  text-decoration:none;  
-  color:white;  
-  transition:0.3s;  
-}  
-  
-nav ul li a:hover{  
-  color:#facc15;  
-}  
-  
-/* HERO */  
-.hero{  
-  text-align:center;  
-  padding:60px 20px;  
-  max-width:900px;  
-  margin:auto;  
-}  
-  
-.hero h1{  
-  font-size:40px;  
-  margin-bottom:10px;  
-}  
-  
-.highlight{  
-  color:#facc15;  
-}  
-  
-.typing{  
-  font-size:18px;  
-  margin-bottom:20px;  
-  height:25px;  
-  opacity:0.9;  
-}  
-  
-/* INTRO BUBBLE (DEFAULT DESKTOP POSITION) */  
-#introBubble{  
-  margin:30px auto;  
-  width:200px;  
-  height:200px;  
-  position:relative;  
-  display:flex;  
-  align-items:center;  
-  justify-content:center;  
-}  
-  
-#introBubble .ring{  
-  position:absolute;  
-  width:200px;  
-  height:200px;  
-  border-radius:50%;  
-  border:6px solid #facc15;  
-  animation: spin 2s linear forwards;  
-}  
-  
-#introBubble img{  
-  width:160px;  
-  height:160px;  
-  border-radius:50%;  
-  object-fit:cover;  
-  opacity:0;  
-  transition:opacity 0.6s ease;  
-}  
-  
-@keyframes spin{  
-  from{ transform:rotate(0deg); }  
-  to{ transform:rotate(360deg); }  
-}  
-  
-/* CONTENT SECTIONS */  
-.content{  
-  display:none;  
-  padding:40px 10%;  
-  text-align:center;  
-  animation:fadeIn 0.4s ease;  
-}  
-  
-.content.active{  
-  display:block;  
-}  
-  
-@keyframes fadeIn{  
-  from{opacity:0; transform:translateY(20px);}  
-  to{opacity:1; transform:translateY(0);}  
-}  
-  
-h2{  
-  color:#facc15;  
-  margin-bottom:20px;  
-}  
-  
-/* FOOTER */  
-footer{  
-  text-align:center;  
-  padding:30px 0;  
-  font-size:14px;  
-  opacity:0.8;  
-}  
-  
-/* MOBILE FIX */  
-@media (max-width:768px){  
-  
-  nav{  
-    flex-direction:column;  
-    padding:20px;  
-  }  
-  
-  nav ul{  
-    flex-wrap:wrap;  
-    justify-content:center;  
-    margin-top:15px;  
-  }  
-  
-  nav ul li{  
-    margin:10px 15px;  
-  }  
-  
-  .hero h1{  
-    font-size:28px;  
-  }  
-  
-  #introBubble{  
-    width:160px;  
-    height:160px;  
-  }  
-  
-  #introBubble .ring{  
-    width:160px;  
-    height:160px;  
-  }  
-  
-  #introBubble img{  
-    width:130px;  
-    height:130px;  
-  }  
-  
-}  
-  
-</style>  </head>  <body>  <nav>  
-  <div class="logo">  
-    <img src="logo.png" alt="logo">  
-  </div>  
-  <ul>  
-    <li><a href="#" onclick="showSection('about'); return false;">About</a></li>  
-    <li><a href="#" onclick="showSection('skills'); return false;">Skills</a></li>  
-    <li><a href="#" onclick="showSection('Experience'); return false;">Experience</a></li>  
-    <li><a href="#" onclick="showSection('Education'); return false;">Education</a></li>  
-  </ul>  
-</nav>  <section class="hero">  
-  <h1>Hello, I'm <span class="highlight">Anil Salvi</span></h1>  
-  <div class="typing" id="typing"></div>    <!-- IMAGE BELOW NAME -->    <div id="introBubble">  
-    <div class="ring"></div>  
-    <img src="myphoto.png" alt="My Photo">  
-  </div>  
-</section>  <!-- ABOUT -->  <div id="about" class="content">  
-  <h2>About Me</h2>  
-  <p>  
-    Experienced education professional with administrative, digital and institutional coordination experience.  
-  </p>  
-</div>  <!-- SKILLS -->  <div id="skills" class="content">  
-  <h2>Skills</h2>  
-  Administrative Operations • Website Management • HTML • CSS • JavaScript  
-</div>  <!-- EXPERIENCE -->  <div id="Experience" class="content">  
-  <h2>Experience</h2>  
-  School Operations & Digital Systems Implementation  
-</div>  <!-- EDUCATION -->  <div id="Education" class="content">  
-  <h2>Education</h2>  
-  B.A. – Mumbai University (2022) <br>  
-  B.Ed. – MIT-WPU University (2024)  
-</div>  <footer>  
-  © 2026 Anil Salvi | All Rights Reserved  
-</footer>  <script>  
-  
-/* Typing Animation */  
-const texts=[  
-  "Educator",  
-  "Acting School Coordinator",  
-  "Self-Taught Developer",  
-  "Digital Learning Innovator"  
-];  
-  
-let textIndex=0;  
-let charIndex=0;  
-let isDeleting=false;  
-const typing=document.getElementById("typing");  
-  
-function typeEffect(){  
-  const current=texts[textIndex];  
-  
-  if(!isDeleting){  
-    typing.textContent=current.substring(0,charIndex+1);  
-    charIndex++;  
-    if(charIndex===current.length){  
-      setTimeout(()=>isDeleting=true,1200);  
-    }  
-  }else{  
-    typing.textContent=current.substring(0,charIndex-1);  
-    charIndex--;  
-    if(charIndex===0){  
-      isDeleting=false;  
-      textIndex=(textIndex+1)%texts.length;  
-    }  
-  }  
-  setTimeout(typeEffect,isDeleting?50:100);  
-}  
-typeEffect();  
-  
-/* Section Toggle */  
-function showSection(id){  
-  document.querySelectorAll(".content").forEach(sec=>{  
-    sec.classList.remove("active");  
-  });  
-  document.getElementById(id).classList.add("active");  
-}  
-  
-/* Bubble Animation */  
-setTimeout(()=>{  
-  document.querySelector("#introBubble .ring").style.display="none";  
-  document.querySelector("#introBubble img").style.opacity="1";  
-},2000); 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anil Salvi | Developer Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:#0f172a;
+  color:white;
+}
+
+/* NAVBAR */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 10%;
+  background:#0f172a;
+}
+
+.logo img{
+  width:60px;
+  height:60px;
+  object-fit:cover;
+  border-radius:50%;
+  border:3px solid #facc15;
+}
+
+nav ul{
+  display:flex;
+  list-style:none;
+}
+
+nav ul li{
+  margin-left:25px;
+}
+
+nav ul li a{
+  text-decoration:none;
+  color:white;
+  transition:0.3s;
+}
+
+nav ul li a:hover{
+  color:#facc15;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:60px 20px;
+  max-width:900px;
+  margin:auto;
+}
+
+.hero h1{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.highlight{
+  color:#facc15;
+}
+
+.typing{
+  font-size:18px;
+  margin-bottom:20px;
+  height:25px;
+  opacity:0.9;
+}
+
+/* INTRO IMAGE */
+#introBubble{
+  margin:30px auto;
+  width:200px;
+  height:200px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+#introBubble .ring{
+  position:absolute;
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  border:6px solid #facc15;
+  animation: spin 2s linear forwards;
+}
+
+#introBubble img{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity 0.6s ease;
+}
+
+@keyframes spin{
+  from{ transform:rotate(0deg); }
+  to{ transform:rotate(360deg); }
+}
+
+/* CONTENT */
+.content{
+  display:none;
+  padding:40px 10%;
+  text-align:center;
+  animation:fadeIn 0.4s ease;
+}
+
+.content.active{
+  display:block;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+h2{
+  color:#facc15;
+  margin-bottom:20px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px 0;
+  font-size:14px;
+  opacity:0.8;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+
+  nav{
+    flex-direction:column;
+  }
+
+  nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:15px;
+  }
+
+  nav ul li{
+    margin:10px 15px;
+  }
+
+  .hero h1{
+    font-size:28px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">
+    <img src="logo.png" alt="logo">
+  </div>
+  <ul>
+    <li><a href="#" onclick="showSection('about'); return false;">About</a></li>
+    <li><a href="#" onclick="showSection('skills'); return false;">Skills</a></li>
+    <li><a href="#" onclick="showSection('experience'); return false;">Experience</a></li>
+    <li><a href="#" onclick="showSection('education'); return false;">Education</a></li>
+    <li><a href="products.html">Products</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <h1>Hello, I'm <span class="highlight">Anil Salvi</span></h1>
+  <div class="typing" id="typing"></div>
+
+  <div id="introBubble">
+    <div class="ring"></div>
+    <img src="myphoto.png" alt="My Photo">
+  </div>
+</section>
+
+<div id="about" class="content">
+  <h2>About Me</h2>
+  Experienced education professional with administrative, digital and institutional coordination experience.
+</div>
+
+<div id="skills" class="content">
+  <h2>Skills</h2>
+  Administrative Operations • Website Management • HTML • CSS • JavaScript
+</div>
+
+<div id="experience" class="content">
+  <h2>Experience</h2>
+  School Operations & Digital Systems Implementation
+</div>
+
+<div id="education" class="content">
+  <h2>Education</h2>
+  B.A. – Mumbai University (2022)<br>
+  B.Ed. – MIT-WPU University (2024)
+</div>
+
+<footer>
+  © 2026 Anil Salvi | All Rights Reserved
+</footer>
+
+<script>
+
+const texts=[
+  "Educator",
+  "Acting School Coordinator",
+  "Self-Taught Developer",
+  "Digital Learning Innovator"
+];
+
+let textIndex=0;
+let charIndex=0;
+let isDeleting=false;
+const typing=document.getElementById("typing");
+
+function typeEffect(){
+  const current=texts[textIndex];
+
+  if(!isDeleting){
+    typing.textContent=current.substring(0,charIndex+1);
+    charIndex++;
+    if(charIndex===current.length){
+      setTimeout(()=>isDeleting=true,1200);
+    }
+  }else{
+    typing.textContent=current.substring(0,charIndex-1);
+    charIndex--;
+    if(charIndex===0){
+      isDeleting=false;
+      textIndex=(textIndex+1)%texts.length;
+    }
+  }
+  setTimeout(typeEffect,isDeleting?50:100);
+}
+typeEffect();
+
+function showSection(id){
+  document.querySelectorAll(".content").forEach(sec=>{
+    sec.classList.remove("active");
+  });
+  document.getElementById(id).classList.add("active");
+}
+
+setTimeout(()=>{
+  document.querySelector("#introBubble .ring").style.display="none";
+  document.querySelector("#introBubble img").style.opacity="1";
+},2000);
+
+</script>
+
+</body>
+</html>
