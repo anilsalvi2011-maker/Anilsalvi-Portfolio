@@ -1,217 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anil Salvi | Products</title>
+    <meta charset="UTF-8">
+    <title>Products | Anil Salvi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
 
-<style>
+        body{
+            background:#0b1c36;
+            color:white;
+        }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
+        header{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:15px 8%;
+            background:#08152b;
+            border-bottom:2px solid #facc15;
+        }
 
-body{
-  background:#0f172a;
-  color:white;
-}
+        .logo{
+            display:flex;
+            align-items:center;
+        }
 
-/* NAVBAR */
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px 10%;
-  background:#0f172a;
-}
+        .logo img{
+            width:60px;
+            height:60px;
+            object-fit:cover;
+            border-radius:50%;
+            border:3px solid #facc15;
+        }
 
-.logo img{
-  width:60px;
-  height:60px;
-  object-fit:cover;
-  border-radius:50%;
-  border:3px solid #facc15;
-}
+        nav ul{
+            display:flex;
+            list-style:none;
+        }
 
-nav ul{
-  display:flex;
-  list-style:none;
-}
+        nav ul li{
+            margin-left:25px;
+        }
 
-nav ul li{
-  margin-left:25px;
-}
+        nav ul li a{
+            text-decoration:none;
+            color:white;
+            font-weight:500;
+            transition:0.3s;
+        }
 
-nav ul li a{
-  text-decoration:none;
-  color:white;
-  transition:0.3s;
-}
+        nav ul li a:hover{
+            color:#facc15;
+        }
 
-nav ul li a:hover{
-  color:#facc15;
-}
+        .active{
+            color:#facc15;
+            font-weight:bold;
+        }
 
-/* HERO */
-.hero{
-  text-align:center;
-  padding:60px 20px;
-}
+        .products-section{
+            padding:80px 8%;
+            text-align:center;
+        }
 
-.hero h1{
-  font-size:40px;
-}
+        .product-card{
+            max-width:500px;
+            margin:auto;
+            background:#11254a;
+            border:2px solid #facc15;
+            border-radius:20px;
+            padding:40px 30px;
+            box-shadow:0 0 25px rgba(250,204,21,0.2);
+        }
 
-.highlight{
-  color:#facc15;
-}
+        .product-card img{
+            width:150px;
+            margin-bottom:25px;
+        }
 
-/* PRODUCT SECTION */
-.products{
-  padding:50px 10%;
-  display:flex;
-  justify-content:center;
-}
+        .product-card h1{
+            color:#facc15;
+            margin-bottom:15px;
+        }
 
-.product-card{
-  background:#111c35;
-  border:1px solid #1f2a44;
-  border-radius:15px;
-  padding:40px;
-  max-width:400px;
-  text-align:center;
-  transition:0.3s;
-}
+        .product-card p{
+            line-height:1.6;
+            margin-bottom:30px;
+            color:#d1d5db;
+        }
 
-.product-card:hover{
-  transform:translateY(-8px);
-  border-color:#facc15;
-}
+        .download-btn{
+            display:inline-block;
+            padding:14px 30px;
+            background:#facc15;
+            color:#08152b;
+            text-decoration:none;
+            font-weight:bold;
+            border-radius:10px;
+            transition:0.3s;
+        }
 
-.product-card img{
-  width:120px;
-  margin-bottom:20px;
-}
+        .download-btn:hover{
+            background:#eab308;
+        }
 
-.product-card h2{
-  font-size:28px;
-  margin-bottom:10px;
-  color:#facc15;
-}
+        footer{
+            text-align:center;
+            padding:30px;
+            margin-top:80px;
+            color:#9ca3af;
+        }
 
-.product-card p{
-  font-size:15px;
-  opacity:0.9;
-  margin-bottom:20px;
-  line-height:1.6;
-}
+        @media(max-width:768px){
+            nav ul{
+                display:none;
+            }
+        }
 
-/* BUTTON */
-.btn{
-  display:inline-block;
-  background:#facc15;
-  color:black;
-  padding:12px 25px;
-  border-radius:8px;
-  font-weight:600;
-  text-decoration:none;
-  transition:0.3s;
-}
-
-.btn:hover{
-  background:#eab308;
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:40px 0;
-  font-size:14px;
-  opacity:0.8;
-}
-
-/* MOBILE */
-@media (max-width:768px){
-
-  nav{
-    flex-direction:column;
-    padding:20px;
-  }
-
-  nav ul{
-    flex-wrap:wrap;
-    justify-content:center;
-    margin-top:15px;
-  }
-
-  nav ul li{
-    margin:10px 15px;
-  }
-
-  .hero h1{
-    font-size:28px;
-  }
-
-  .product-card{
-    padding:30px;
-  }
-
-}
-
-</style>
+    </style>
 </head>
 
 <body>
 
-<nav>
-  <div class="logo">
-    <a href="index.html">
-      <img src="logo.png" alt="logo">
-    </a>
-  </div>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="index.html#skills">Skills</a></li>
-    <li><a href="index.html#Experience">Experience</a></li>
-    <li><a href="index.html#Education">Education</a></li>
-  </ul>
-</nav>
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
+    </div>
 
-<section class="hero">
-  <h1>My <span class="highlight">Products</span></h1>
-</section>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html" class="active">Products</a></li>
+        </ul>
+    </nav>
+</header>
 
-<section class="products">
+<section class="products-section">
 
-  <div class="product-card">
-      <img src="logo.png" alt="ClearWord Logo">
+    <div class="product-card">
 
-      <h2>ClearWord</h2>
+        <img src="myphoto.png" alt="ClearWord Logo">
 
-      <p>
-        Version 1.0 • Android Application <br><br>
-        ClearWord is a student-focused vocabulary application designed 
-        to simplify complex dictionary definitions into clear, 
-        teacher-style explanations.
-      </p>
+        <h1>ClearWord</h1>
 
-      <a href="https://github.com/anilsalvi2011-maker/anilsalvi2011-maker.github.io/releases/download/v1.0/ClearWord_1.apk"
-         target="_blank"
-         class="btn">
-         Download APK
-      </a>
-  </div>
+        <p>
+            Version 1.0 • Android Application <br><br>
+            ClearWord is a student-focused vocabulary application designed to simplify complex dictionary definitions into clear, teacher-style explanations.
+        </p>
+
+        <a href="https://github.com/anilsalvi2011-maker/anilsalvi2011-maker.github.io/releases/latest/download/clearword.1.apk"
+           class="download-btn">
+           Download APK
+        </a>
+
+    </div>
 
 </section>
 
 <footer>
-  © 2026 Anil Salvi | All Rights Reserved
+    © 2026 Anil Salvi | All Rights Reserved
 </footer>
 
 </body>
