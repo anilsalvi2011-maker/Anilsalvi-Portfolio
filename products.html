@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Products | Anil Salvi</title>
+<title>Anil Salvi | Products</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -27,16 +27,17 @@ nav{
   justify-content:space-between;
   align-items:center;
   padding:20px 10%;
+  background:#0f172a;
 }
 
 .logo img{
   width:60px;
   height:60px;
+  object-fit:cover;
   border-radius:50%;
   border:3px solid #facc15;
 }
 
-/* NAV LINKS */
 nav ul{
   display:flex;
   list-style:none;
@@ -56,13 +57,13 @@ nav ul li a:hover{
   color:#facc15;
 }
 
-/* HEADER */
-.header{
+/* HERO */
+.hero{
   text-align:center;
   padding:60px 20px;
 }
 
-.header h1{
+.hero h1{
   font-size:40px;
 }
 
@@ -70,30 +71,55 @@ nav ul li a:hover{
   color:#facc15;
 }
 
-/* PRODUCT CARD */
-.product{
-  max-width:800px;
-  margin:50px auto;
-  padding:40px;
-  border:1px solid rgba(255,255,255,0.1);
-  border-radius:12px;
-  text-align:center;
+/* PRODUCT SECTION */
+.products{
+  padding:50px 10%;
+  display:flex;
+  justify-content:center;
 }
 
-.product img{
-  width:100px;
+.product-card{
+  background:#111c35;
+  border:1px solid #1f2a44;
+  border-radius:15px;
+  padding:40px;
+  max-width:400px;
+  text-align:center;
+  transition:0.3s;
+}
+
+.product-card:hover{
+  transform:translateY(-8px);
+  border-color:#facc15;
+}
+
+.product-card img{
+  width:120px;
   margin-bottom:20px;
 }
 
+.product-card h2{
+  font-size:28px;
+  margin-bottom:10px;
+  color:#facc15;
+}
+
+.product-card p{
+  font-size:15px;
+  opacity:0.9;
+  margin-bottom:20px;
+  line-height:1.6;
+}
+
+/* BUTTON */
 .btn{
   display:inline-block;
-  padding:10px 20px;
   background:#facc15;
-  color:#0f172a;
-  text-decoration:none;
-  border-radius:6px;
+  color:black;
+  padding:12px 25px;
+  border-radius:8px;
   font-weight:600;
-  margin-top:15px;
+  text-decoration:none;
   transition:0.3s;
 }
 
@@ -101,11 +127,40 @@ nav ul li a:hover{
   background:#eab308;
 }
 
+/* FOOTER */
 footer{
   text-align:center;
-  padding:30px;
+  padding:40px 0;
   font-size:14px;
   opacity:0.8;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+
+  nav{
+    flex-direction:column;
+    padding:20px;
+  }
+
+  nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:15px;
+  }
+
+  nav ul li{
+    margin:10px 15px;
+  }
+
+  .hero h1{
+    font-size:28px;
+  }
+
+  .product-card{
+    padding:30px;
+  }
+
 }
 
 </style>
@@ -115,32 +170,43 @@ footer{
 
 <nav>
   <div class="logo">
-    <img src="logo.png" alt="logo">
+    <a href="index.html">
+      <img src="logo.png" alt="logo">
+    </a>
   </div>
   <ul>
     <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="index.html#Experience">Experience</a></li>
+    <li><a href="index.html#Education">Education</a></li>
   </ul>
 </nav>
 
-<section class="header">
+<section class="hero">
   <h1>My <span class="highlight">Products</span></h1>
 </section>
 
-<section class="product">
+<section class="products">
 
-  <img src="logo.png" alt="ClearWord">
+  <div class="product-card">
+      <img src="logo.png" alt="ClearWord Logo">
 
-  <h2>ClearWord</h2>
-  <p>Version 1.0 • Android Application</p>
+      <h2>ClearWord</h2>
 
-  <p>
-    ClearWord is a student-focused vocabulary application designed to simplify
-    complex dictionary definitions into clear, teacher-style explanations.
-  </p>
+      <p>
+        Version 1.0 • Android Application <br><br>
+        ClearWord is a student-focused vocabulary application designed 
+        to simplify complex dictionary definitions into clear, 
+        teacher-style explanations.
+      </p>
 
-  <a href="ClearWord_v1.0.apk" class="btn" download>
-    Download APK
-  </a>
+      <a href="https://github.com/anilsalvi2011-maker/anilsalvi2011-maker.github.io/releases/download/v1.0/ClearWord_1.apk"
+         target="_blank"
+         class="btn">
+         Download APK
+      </a>
+  </div>
 
 </section>
 
