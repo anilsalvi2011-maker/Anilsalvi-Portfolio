@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anil Salvi | Portfolio</title>
+<title>Anil Salvi | Developer Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -19,6 +19,7 @@
 body{
   background:#0f172a;
   color:white;
+  scroll-behavior:smooth;
 }
 
 /* NAVBAR */
@@ -26,9 +27,7 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:20px 8%;
-  background:#0f172a;
-  flex-wrap:wrap;
+  padding:20px 10%;
 }
 
 .logo img{
@@ -45,7 +44,7 @@ nav ul{
 }
 
 nav ul li{
-  margin:8px 15px;
+  margin-left:20px;
 }
 
 nav ul li a{
@@ -62,11 +61,11 @@ nav ul li a:hover{
 /* HERO */
 .hero{
   text-align:center;
-  padding:50px 20px;
+  padding:60px 20px;
 }
 
 .hero h1{
-  font-size:38px;
+  font-size:42px;
 }
 
 .highlight{
@@ -74,9 +73,9 @@ nav ul li a:hover{
 }
 
 .typing{
-  margin-top:10px;
-  height:24px;
-  opacity:0.9;
+  margin-top:15px;
+  font-size:20px;
+  opacity:0.8;
 }
 
 .hero img{
@@ -84,15 +83,16 @@ nav ul li a:hover{
   height:200px;
   border-radius:50%;
   object-fit:cover;
-  border:5px solid #facc15;
   margin-top:30px;
+  border:5px solid #facc15;
 }
 
-/* CONTENT */
+/* SECTIONS */
 .content{
   display:none;
-  padding:40px 8%;
-  animation:fadeIn 0.3s ease;
+  padding:60px 10%;
+  text-align:center;
+  animation:fadeIn 0.4s ease;
 }
 
 .content.active{
@@ -100,57 +100,74 @@ nav ul li a:hover{
 }
 
 @keyframes fadeIn{
-  from{opacity:0; transform:translateY(15px);}
+  from{opacity:0; transform:translateY(20px);}
   to{opacity:1; transform:translateY(0);}
 }
 
 h2{
   color:#facc15;
-  margin-bottom:20px;
+  margin-bottom:30px;
 }
 
-/* CARDS */
+/* CARD STYLE */
 .card{
   background:#1e293b;
   padding:25px;
-  border-radius:12px;
-  margin-bottom:20px;
-  border:1px solid rgba(250,204,21,0.2);
+  border-radius:15px;
+  margin:20px auto;
+  max-width:700px;
+  border:1px solid rgba(250,204,21,0.3);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 0 20px rgba(250,204,21,0.3);
+}
+
+/* GALLERY */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.gallery-grid img{
+  width:100%;
+  border-radius:15px;
+  cursor:pointer;
+  transition:0.3s;
+  border:3px solid #facc15;
+}
+
+.gallery-grid img:hover{
+  transform:scale(1.05);
 }
 
 /* FOOTER */
 footer{
   text-align:center;
-  padding:25px;
+  padding:30px;
   opacity:0.7;
 }
 
-/* MOBILE */
 @media(max-width:768px){
-
   nav{
     flex-direction:column;
-    align-items:center;
   }
-
   nav ul{
     justify-content:center;
+    margin-top:15px;
   }
-
-  .hero h1{
-    font-size:28px;
-  }
-
 }
 
 </style>
 </head>
-
 <body>
 
 <nav>
   <div class="logo">
-    <img src="logo.png">
+    <img src="logo.png" alt="logo">
   </div>
   <ul>
     <li><a onclick="showSection('about')">About</a></li>
@@ -166,14 +183,14 @@ footer{
 <section class="hero">
   <h1>Hello, I'm <span class="highlight">Anil Salvi</span></h1>
   <div class="typing" id="typing"></div>
-  <img src="myphoto.png">
+  <img src="myphoto.png" alt="My Photo">
 </section>
 
 <!-- ABOUT -->
-<div id="about" class="content active">
+<div id="about" class="content">
   <h2>About Me</h2>
   <div class="card">
-    Experienced education professional with administrative and digital leadership expertise.
+    Experienced education professional with administrative, digital and institutional coordination experience.
   </div>
 </div>
 
@@ -181,7 +198,7 @@ footer{
 <div id="skills" class="content">
   <h2>Skills</h2>
   <div class="card">
-    Administrative Operations • HTML • CSS • JavaScript • Institutional Systems
+    Administrative Operations • Website Management • HTML • CSS • JavaScript
   </div>
 </div>
 
@@ -189,11 +206,11 @@ footer{
 <div id="experience" class="content">
   <h2>Experience</h2>
   <div class="card">
-    Acting School Coordinator – Sacred Heart Convent High School
+    Acting School Coordinator – Digital Systems Implementation & Academic Leadership
   </div>
 </div>
 
-<!-- EDUCATION (FIXED - NOW VISIBLE) -->
+<!-- EDUCATION -->
 <div id="education" class="content">
   <h2>Education</h2>
   <div class="card">
@@ -205,19 +222,28 @@ footer{
 <!-- ACHIEVEMENTS -->
 <div id="achievements" class="content">
   <h2>Achievements</h2>
+
   <div class="card">
-    🏆 Best Teacher Award 2025–26 – Indian Talent Olympiad
+    🏆 Best Teacher Award 2025–26<br>
+    Indian Talent Olympiad – National Recognition
   </div>
+
   <div class="card">
-    🌱 Eco Club – Mission LiFE (Teacher In-Charge)
+    🛡 National Child Rights Protection – Prahari Club Leadership
+  </div>
+
+  <div class="card">
+    🎓 Acting School Coordinator – Institutional Growth & Digital Innovation
   </div>
 </div>
 
 <!-- GALLERY -->
 <div id="gallery" class="content">
   <h2>Gallery</h2>
-  <div class="card">
-    Upload award1.jpg, award2.jpg, ecoclub.jpg in repo root.
+  <div class="gallery-grid">
+    <img src="award1.jpg">
+    <img src="award2.jpg">
+    <img src="eco1.jpg">
   </div>
 </div>
 
@@ -227,11 +253,11 @@ footer{
 
 <script>
 
-/* Typing Effect */
 const texts=[
   "Educator",
   "National Awardee",
-  "School Coordinator",
+  "Acting School Coordinator",
+  "Self-Taught Developer",
   "Digital Learning Innovator"
 ];
 
@@ -242,11 +268,12 @@ const typing=document.getElementById("typing");
 
 function typeEffect(){
   const current=texts[textIndex];
+
   if(!isDeleting){
     typing.textContent=current.substring(0,charIndex+1);
     charIndex++;
     if(charIndex===current.length){
-      setTimeout(()=>isDeleting=true,1000);
+      setTimeout(()=>isDeleting=true,1200);
     }
   }else{
     typing.textContent=current.substring(0,charIndex-1);
@@ -260,7 +287,6 @@ function typeEffect(){
 }
 typeEffect();
 
-/* Section Toggle */
 function showSection(id){
   document.querySelectorAll(".content").forEach(sec=>{
     sec.classList.remove("active");
