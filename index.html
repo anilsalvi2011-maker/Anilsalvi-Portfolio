@@ -152,14 +152,55 @@ h2{
   box-shadow:0 0 20px rgba(250,204,21,0.3);
 }
 
-.achievement-card h3{
-  color:#facc15;
-  margin-bottom:10px;
+/* GALLERY */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  margin-top:30px;
 }
 
-.achievement-card p{
-  margin-bottom:8px;
-  opacity:0.9;
+.gallery-grid img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  border-radius:12px;
+  border:3px solid #facc15;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.gallery-grid img:hover{
+  transform:scale(1.05);
+}
+
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  z-index:1000;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  justify-content:center;
+  align-items:center;
+}
+
+.modal img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:10px;
+}
+
+.modal span{
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:40px;
+  color:white;
+  cursor:pointer;
 }
 
 /* FOOTER */
@@ -208,6 +249,7 @@ footer{
     <li><a href="#" onclick="showSection('experience'); return false;">Experience</a></li>
     <li><a href="#" onclick="showSection('education'); return false;">Education</a></li>
     <li><a href="#" onclick="showSection('achievements'); return false;">Achievements</a></li>
+    <li><a href="#" onclick="showSection('gallery'); return false;">Gallery</a></li>
     <li><a href="products.html">Products</a></li>
   </ul>
 </nav>
@@ -222,7 +264,7 @@ footer{
   </div>
 </section>
 
-<div id="about" class="content">
+<div id="about" class="content active">
   <h2>About Me</h2>
   Experienced education professional with administrative, digital and institutional coordination experience.
 </div>
@@ -243,36 +285,39 @@ footer{
   B.Ed. – MIT-WPU University (2024)
 </div>
 
-<!-- NEW ACHIEVEMENTS SECTION -->
 <div id="achievements" class="content">
   <h2>Achievements & Leadership</h2>
 
   <div class="achievement-card">
     <h3>🏆 Best Teacher Award 2025–26</h3>
     <p><strong>Indian Talent Olympiad</strong></p>
-    <p>
-      National level recognition for academic excellence, student progress,
-      and innovative educational leadership at Sacred Heart Convent High School.
-    </p>
-    <p><em>Felicitation Ceremony – Mumbai, Maharashtra</em></p>
+    <p>National level recognition for academic excellence and educational leadership.</p>
   </div>
 
   <div class="achievement-card">
     <h3>🛡 National Child Rights Protection – Prahari Club</h3>
-    <p>
-      Led institutional implementation of Child Rights & Anti-Substance Awareness Committee.
-      Structured documentation, compliance, and student protection initiatives.
-    </p>
+    <p>Institutional implementation of Child Rights & Anti-Substance Awareness Committee.</p>
   </div>
 
   <div class="achievement-card">
     <h3>🎓 Acting School Coordinator</h3>
-    <p>
-      Directed academic planning, digital integration, 
-      and administrative systems for institutional efficiency and growth.
-    </p>
+    <p>Directed academic planning and digital integration for institutional growth.</p>
   </div>
+</div>
 
+<div id="gallery" class="content">
+  <h2>Gallery</h2>
+
+  <div class="gallery-grid">
+    <img src="award1.jpg" onclick="openModal(this.src)">
+    <img src="award2.jpg" onclick="openModal(this.src)">
+    <img src="committee.jpg" onclick="openModal(this.src)">
+  </div>
+</div>
+
+<div class="modal" id="imageModal">
+  <span onclick="closeModal()">&times;</span>
+  <img id="modalImg">
 </div>
 
 <footer>
@@ -320,6 +365,15 @@ function showSection(id){
     sec.classList.remove("active");
   });
   document.getElementById(id).classList.add("active");
+}
+
+function openModal(src){
+  document.getElementById("imageModal").style.display="flex";
+  document.getElementById("modalImg").src=src;
+}
+
+function closeModal(){
+  document.getElementById("imageModal").style.display="none";
 }
 
 setTimeout(()=>{
