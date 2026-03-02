@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anil Salvi | Developer Portfolio</title>
+<title>Anil Salvi | Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -26,7 +26,9 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:20px 10%;
+  padding:20px 8%;
+  background:#0f172a;
+  flex-wrap:wrap;
 }
 
 .logo img{
@@ -43,12 +45,13 @@ nav ul{
 }
 
 nav ul li{
-  margin:10px 15px;
+  margin:8px 15px;
 }
 
 nav ul li a{
   text-decoration:none;
   color:white;
+  cursor:pointer;
   transition:0.3s;
 }
 
@@ -59,7 +62,7 @@ nav ul li a:hover{
 /* HERO */
 .hero{
   text-align:center;
-  padding:60px 20px;
+  padding:50px 20px;
 }
 
 .hero h1{
@@ -72,26 +75,24 @@ nav ul li a:hover{
 
 .typing{
   margin-top:10px;
-  font-size:18px;
+  height:24px;
   opacity:0.9;
 }
 
-/* PROFILE IMAGE */
-.profile-img{
-  margin-top:30px;
-  width:220px;
-  height:220px;
+.hero img{
+  width:200px;
+  height:200px;
   border-radius:50%;
   object-fit:cover;
   border:5px solid #facc15;
+  margin-top:30px;
 }
 
-/* CONTENT SECTIONS */
+/* CONTENT */
 .content{
   display:none;
-  padding:60px 10%;
-  text-align:center;
-  animation:fadeIn 0.4s ease;
+  padding:40px 8%;
+  animation:fadeIn 0.3s ease;
 }
 
 .content.active{
@@ -99,83 +100,47 @@ nav ul li a:hover{
 }
 
 @keyframes fadeIn{
-  from{opacity:0; transform:translateY(20px);}
+  from{opacity:0; transform:translateY(15px);}
   to{opacity:1; transform:translateY(0);}
 }
 
 h2{
   color:#facc15;
-  margin-bottom:40px;
+  margin-bottom:20px;
 }
 
-/* PREMIUM GALLERY */
-.gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-  gap:25px;
-}
-
-.gallery-grid img{
-  width:100%;
-  height:320px;
-  object-fit:cover;
-  border-radius:18px;
-  cursor:pointer;
-  transition:0.4s ease;
-  box-shadow:0 10px 25px rgba(0,0,0,0.4);
-}
-
-.gallery-grid img:hover{
-  transform:scale(1.05);
-  box-shadow:0 15px 35px rgba(250,204,21,0.5);
-}
-
-/* LIGHTBOX MODAL */
-.modal{
-  display:none;
-  position:fixed;
-  z-index:999;
-  padding-top:60px;
-  left:0;
-  top:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.95);
-}
-
-.modal img{
-  margin:auto;
-  display:block;
-  max-width:90%;
-  max-height:80vh;
+/* CARDS */
+.card{
+  background:#1e293b;
+  padding:25px;
   border-radius:12px;
-  animation:zoomIn 0.3s ease;
-}
-
-@keyframes zoomIn{
-  from{transform:scale(0.7);}
-  to{transform:scale(1);}
-}
-
-.close{
-  position:absolute;
-  top:20px;
-  right:35px;
-  color:white;
-  font-size:40px;
-  cursor:pointer;
+  margin-bottom:20px;
+  border:1px solid rgba(250,204,21,0.2);
 }
 
 /* FOOTER */
 footer{
   text-align:center;
-  padding:30px 0;
+  padding:25px;
   opacity:0.7;
-  font-size:14px;
 }
 
+/* MOBILE */
 @media(max-width:768px){
-  .hero h1{font-size:28px;}
+
+  nav{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  nav ul{
+    justify-content:center;
+  }
+
+  .hero h1{
+    font-size:28px;
+  }
+
 }
 
 </style>
@@ -185,11 +150,15 @@ footer{
 
 <nav>
   <div class="logo">
-    <img src="logo.png" alt="logo">
+    <img src="logo.png">
   </div>
   <ul>
-    <li><a href="#" onclick="showSection('about'); return false;">About</a></li>
-    <li><a href="#" onclick="showSection('gallery'); return false;">Gallery</a></li>
+    <li><a onclick="showSection('about')">About</a></li>
+    <li><a onclick="showSection('skills')">Skills</a></li>
+    <li><a onclick="showSection('experience')">Experience</a></li>
+    <li><a onclick="showSection('education')">Education</a></li>
+    <li><a onclick="showSection('achievements')">Achievements</a></li>
+    <li><a onclick="showSection('gallery')">Gallery</a></li>
     <li><a href="products.html">Products</a></li>
   </ul>
 </nav>
@@ -197,30 +166,59 @@ footer{
 <section class="hero">
   <h1>Hello, I'm <span class="highlight">Anil Salvi</span></h1>
   <div class="typing" id="typing"></div>
-  <img src="myphoto.png" class="profile-img" alt="Profile">
+  <img src="myphoto.png">
 </section>
 
+<!-- ABOUT -->
 <div id="about" class="content active">
   <h2>About Me</h2>
-  Experienced education professional, award-winning teacher,
-  institutional coordinator and digital learning innovator.
+  <div class="card">
+    Experienced education professional with administrative and digital leadership expertise.
+  </div>
 </div>
 
-<!-- PREMIUM GALLERY -->
+<!-- SKILLS -->
+<div id="skills" class="content">
+  <h2>Skills</h2>
+  <div class="card">
+    Administrative Operations • HTML • CSS • JavaScript • Institutional Systems
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div id="experience" class="content">
+  <h2>Experience</h2>
+  <div class="card">
+    Acting School Coordinator – Sacred Heart Convent High School
+  </div>
+</div>
+
+<!-- EDUCATION (FIXED - NOW VISIBLE) -->
+<div id="education" class="content">
+  <h2>Education</h2>
+  <div class="card">
+    B.A. – Mumbai University (2022)<br><br>
+    B.Ed. – MIT-WPU University (2024)
+  </div>
+</div>
+
+<!-- ACHIEVEMENTS -->
+<div id="achievements" class="content">
+  <h2>Achievements</h2>
+  <div class="card">
+    🏆 Best Teacher Award 2025–26 – Indian Talent Olympiad
+  </div>
+  <div class="card">
+    🌱 Eco Club – Mission LiFE (Teacher In-Charge)
+  </div>
+</div>
+
+<!-- GALLERY -->
 <div id="gallery" class="content">
   <h2>Gallery</h2>
-
-  <div class="gallery-grid">
-    <img src="award1.jpg" onclick="openModal(this.src)">
-    <img src="award2.jpg" onclick="openModal(this.src)">
+  <div class="card">
+    Upload award1.jpg, award2.jpg, ecoclub.jpg in repo root.
   </div>
-
-</div>
-
-<!-- LIGHTBOX -->
-<div id="myModal" class="modal">
-  <span class="close" onclick="closeModal()">&times;</span>
-  <img id="modalImg">
 </div>
 
 <footer>
@@ -230,37 +228,45 @@ footer{
 <script>
 
 /* Typing Effect */
-const texts=["Educator","National Awardee","Digital Learning Innovator"];
-let textIndex=0,charIndex=0,isDeleting=false;
+const texts=[
+  "Educator",
+  "National Awardee",
+  "School Coordinator",
+  "Digital Learning Innovator"
+];
+
+let textIndex=0;
+let charIndex=0;
+let isDeleting=false;
 const typing=document.getElementById("typing");
 
 function typeEffect(){
   const current=texts[textIndex];
   if(!isDeleting){
-    typing.textContent=current.substring(0,charIndex++);
-    if(charIndex>current.length){isDeleting=true;setTimeout(()=>{},1000);}
+    typing.textContent=current.substring(0,charIndex+1);
+    charIndex++;
+    if(charIndex===current.length){
+      setTimeout(()=>isDeleting=true,1000);
+    }
   }else{
-    typing.textContent=current.substring(0,charIndex--);
-    if(charIndex<0){isDeleting=false;textIndex=(textIndex+1)%texts.length;}
+    typing.textContent=current.substring(0,charIndex-1);
+    charIndex--;
+    if(charIndex===0){
+      isDeleting=false;
+      textIndex=(textIndex+1)%texts.length;
+    }
   }
   setTimeout(typeEffect,isDeleting?50:100);
 }
 typeEffect();
 
-/* Section Switch */
+/* Section Toggle */
 function showSection(id){
-  document.querySelectorAll(".content").forEach(sec=>sec.classList.remove("active"));
+  document.querySelectorAll(".content").forEach(sec=>{
+    sec.classList.remove("active");
+  });
   document.getElementById(id).classList.add("active");
-}
-
-/* Lightbox */
-function openModal(src){
-  document.getElementById("myModal").style.display="block";
-  document.getElementById("modalImg").src=src;
-}
-
-function closeModal(){
-  document.getElementById("myModal").style.display="none";
+  window.scrollTo({top:0,behavior:"smooth"});
 }
 
 </script>
