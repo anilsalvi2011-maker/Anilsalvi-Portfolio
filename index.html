@@ -134,7 +134,32 @@ nav ul li a:hover{
 
 h2{
   color:#facc15;
-  margin-bottom:20px;
+  margin-bottom:30px;
+}
+
+/* ACHIEVEMENT CARDS */
+.achievement-card{
+  background:#1e293b;
+  padding:25px;
+  border-radius:15px;
+  margin-bottom:25px;
+  border:1px solid rgba(250,204,21,0.3);
+  transition:0.3s ease;
+}
+
+.achievement-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 0 20px rgba(250,204,21,0.3);
+}
+
+.achievement-card h3{
+  color:#facc15;
+  margin-bottom:10px;
+}
+
+.achievement-card p{
+  margin-bottom:8px;
+  opacity:0.9;
 }
 
 /* FOOTER */
@@ -182,6 +207,7 @@ footer{
     <li><a href="#" onclick="showSection('skills'); return false;">Skills</a></li>
     <li><a href="#" onclick="showSection('experience'); return false;">Experience</a></li>
     <li><a href="#" onclick="showSection('education'); return false;">Education</a></li>
+    <li><a href="#" onclick="showSection('achievements'); return false;">Achievements</a></li>
     <li><a href="products.html">Products</a></li>
   </ul>
 </nav>
@@ -217,6 +243,38 @@ footer{
   B.Ed. – MIT-WPU University (2024)
 </div>
 
+<!-- NEW ACHIEVEMENTS SECTION -->
+<div id="achievements" class="content">
+  <h2>Achievements & Leadership</h2>
+
+  <div class="achievement-card">
+    <h3>🏆 Best Teacher Award 2025–26</h3>
+    <p><strong>Indian Talent Olympiad</strong></p>
+    <p>
+      National level recognition for academic excellence, student progress,
+      and innovative educational leadership at Sacred Heart Convent High School.
+    </p>
+    <p><em>Felicitation Ceremony – Mumbai, Maharashtra</em></p>
+  </div>
+
+  <div class="achievement-card">
+    <h3>🛡 National Child Rights Protection – Prahari Club</h3>
+    <p>
+      Led institutional implementation of Child Rights & Anti-Substance Awareness Committee.
+      Structured documentation, compliance, and student protection initiatives.
+    </p>
+  </div>
+
+  <div class="achievement-card">
+    <h3>🎓 Acting School Coordinator</h3>
+    <p>
+      Directed academic planning, digital integration, 
+      and administrative systems for institutional efficiency and growth.
+    </p>
+  </div>
+
+</div>
+
 <footer>
   © 2026 Anil Salvi | All Rights Reserved
 </footer>
@@ -225,6 +283,7 @@ footer{
 
 const texts=[
   "Educator",
+  "National Awardee",
   "Acting School Coordinator",
   "Self-Taught Developer",
   "Digital Learning Innovator"
